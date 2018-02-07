@@ -17,6 +17,9 @@
 	    		</h:panelGrid>
 	    		<h:commandButton value="Login" action="#{loginBean.login}"></h:commandButton>  
 		</h:form>
+		
+		<h:outputLabel value="Welcome Back #{loginBean.name}"></h:outputLabel>
+		
 	</ui:define>
 </ui:composition>
 </html>

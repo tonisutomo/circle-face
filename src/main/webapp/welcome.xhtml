@@ -9,6 +9,9 @@
 <ui:composition template="/templates/basic.xhtml">
 	<ui:define name="content">
 		<h:outputLabel value="Welcome #{loginBean.name}"></h:outputLabel>
+		<h:form>
+		<h:commandButton value="Back" action="login"></h:commandButton> 
+		</h:form>
 	</ui:define>
 </ui:composition>
 </html>
