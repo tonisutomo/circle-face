@@ -36,6 +36,10 @@ public class RestClient {
         return client.target(REST_URI_SERVER).request(MediaType.APPLICATION_JSON).post(Entity.entity(circle, MediaType.APPLICATION_JSON));
     }
 
+    public Response createJsonSquare(Square square) {
+        return client.target(REST_URI_SERVER).path("square").path("simpan").request(MediaType.APPLICATION_JSON).post(Entity.entity(square, MediaType.APPLICATION_JSON));
+    }
+
     public Circle getJsonCircle(String name) {
 		return client.target(REST_URI_SERVER).path("circle").path("login").queryParam("name", name).request(MediaType.APPLICATION_JSON).get(Circle.class);
     }
