@@ -15,22 +15,36 @@ import javax.json.JsonReader;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.circle.model.Square;
+
 
 public class RestClient {
 	
-	private static final String REST_URI = "http://localhost:8080/circle-api/rest/circle";
+	private static final String REST_URI_API = "http://localhost:8080/circle-api/rest/circle";
 	private static final String REST_URI_SERVER = "http://localhost:9090/circle-server";
     private Client client = ClientBuilder.newClient();
 
-    public Response createJsonCircle(Circle circle) {
-        return client.target(REST_URI).request(MediaType.APPLICATION_JSON).post(Entity.entity(circle, MediaType.APPLICATION_JSON));
+    public Response createJsonCircleApi(Circle circle) {
+        return client.target(REST_URI_API).request(MediaType.APPLICATION_JSON).post(Entity.entity(circle, MediaType.APPLICATION_JSON));
     }
 
-    public Circle getJsonCircle1(String name) {
-    		return client.target(REST_URI).path(name).request(MediaType.APPLICATION_JSON).get(Circle.class);
+    public Circle getJsonCircleApi(String name) {
+    		return client.target(REST_URI_API).path(name).request(MediaType.APPLICATION_JSON).get(Circle.class);
     }
-    
+        
+    public Response createJsonCircle(Circle circle) {
+        return client.target(REST_URI_SERVER).request(MediaType.APPLICATION_JSON).post(Entity.entity(circle, MediaType.APPLICATION_JSON));
+    }
+
     public Circle getJsonCircle(String name) {
+		return client.target(REST_URI_SERVER).path("circle").path("login").queryParam("name", name).request(MediaType.APPLICATION_JSON).get(Circle.class);
+    }
+
+    public Square getJsonSquare(String name) {
+		return client.target(REST_URI_SERVER).path("square").path("search").queryParam("name", name).request(MediaType.APPLICATION_JSON).get(Square.class);
+    }
+
+    public Circle getJsonCircleX(String name) {
         Circle circle = new Circle();
         
         WebTarget webTarget = client.target(REST_URI_SERVER);
@@ -45,8 +59,8 @@ public class RestClient {
         //invocationBuilder.header("some-header", "true");
          
         Response response = invocationBuilder.get();
-        System.out.println(response.getStatus());
-        System.out.println(response.readEntity(String.class));
+//        System.out.println(response.getStatus());
+//        System.out.println(response.readEntity(String.class));
 
         if (response.getStatus() == 200) {
         		StringReader stringReader = new StringReader(invocationBuilder.get(String.class));

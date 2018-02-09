@@ -7,8 +7,10 @@ import javax.faces.bean.RequestScoped;
 
 import com.circle.client.Circle;
 import com.circle.client.ClientService;
+import com.circle.model.Square;
 
-@ManagedBean @RequestScoped 
+@ManagedBean 
+@RequestScoped 
 public class LoginBean implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -16,9 +18,21 @@ public class LoginBean implements Serializable {
 	private String name;
 	private String password;
 	private Circle circle;
+	private Square square;
 	
+	public Square getSquare() {
+		return square;
+	}
+
+	public void setSquare(Square square) {
+		this.square = square;
+	}
+
 	public String login() {
-		setCircle(ClientService.produceJSON(name));
+		setCircle(ClientService.getJsonCircleApi(name));
+		String s = ClientService.createJsonCircleApi(getCircle());
+		System.out.println(s);
+		setSquare(ClientService.getJsonSquare(name));
 		return "welcome";
 	}
 	

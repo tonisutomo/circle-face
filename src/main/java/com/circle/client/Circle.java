@@ -1,5 +1,8 @@
 package com.circle.client;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown=true) 
 public class Circle {
     private int id;
     private String firstName;
