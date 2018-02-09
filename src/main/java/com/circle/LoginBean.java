@@ -29,7 +29,7 @@ public class LoginBean implements Serializable {
 	}
 
 	public String login() {
-		setCircle(ClientService.getJsonCircleApi(name));
+		setCircle(ClientService.getJsonCircle(name));
 		String s = ClientService.createJsonCircleApi(getCircle());
 		System.out.println(s);
 		setSquare(ClientService.getJsonSquare(name));

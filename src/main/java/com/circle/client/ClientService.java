@@ -18,6 +18,11 @@ public class ClientService {
 		return "Status " + response.getStatus() + response.readEntity(String.class); 
     }	
 
+    public static Circle getJsonCircle(String name ) {
+		Circle circle = client.getJsonCircle(name);
+		return circle;
+    }	
+
     public static Square getJsonSquare(String name ) {
 		Square square = client.getJsonSquare(name);
 		return square;
