@@ -21,7 +21,7 @@
   <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.7</java.version>
-        <primefaces.version>5.0</primefaces.version>
+        <primefaces.version>6.1</primefaces.version>
         <primefaces.ext.version>2.0.0</primefaces.ext.version>
         <jsf.version>2.2.6</jsf.version>
         <log4j.version>1.2.17</log4j.version>
@@ -62,6 +62,12 @@
             <id>thirdparty-releases</id>
             <name>JBoss Thirdparty Releases</name>
             <url>https://repository.jboss.org/nexus/content/repositories/thirdparty-releases</url>
+        </repository>
+        <repository>
+            <snapshots/>
+            <id>snapshots</id>
+            <name>libs-snapshot</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </repository>
   </repositories>
 
@@ -105,6 +111,12 @@
     </dependency>
     
     <!-- <dependency>
+    		<groupId>com.github.adminfaces</groupId>
+    		<artifactId>admin-template</artifactId>
+    		<version>1.0.0-RC1</version>
+	</dependency> -->
+
+    <!-- <dependency>
         <groupId>javax</groupId>
         <artifactId>javaee-api</artifactId>
         <version>6.0</version>
@@ -116,12 +128,25 @@
         <artifactId>primefaces</artifactId>
         <version>${primefaces.version}</version>
     </dependency>
+    
     <dependency>
         <groupId>org.primefaces.themes</groupId>
-        <artifactId>bootstrap</artifactId>
+        <artifactId>casablanca</artifactId>
         <version>${themes.version}</version>
     </dependency>
     
+    <!-- <dependency>
+    		<groupId>com.github.adminfaces</groupId>
+    		<artifactId>admin-theme</artifactId>
+    		<version>1.0.0-RC1</version>
+	</dependency> -->
+
+    <!-- <dependency>
+		<groupId>com.github.jepsar</groupId>
+		<artifactId>primefaces-theme-jepsar</artifactId>
+		<version>0.9.1</version>
+	</dependency> -->
+
     		<dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet-core</artifactId>

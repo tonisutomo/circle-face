@@ -25,6 +25,12 @@
   				</ui:insert>
             </p:layoutUnit> -->
             
+             <p:layoutUnit position="west" size="300" header="Menu" resizable="true" collapsible="true">
+                <ui:insert name="menu">
+                		<ui:include src="/views/menu.xhtml"/>
+  				</ui:insert>
+            </p:layoutUnit>
+            
             <p:layoutUnit position="center">
                 <ui:insert name="content"></ui:insert>
             </p:layoutUnit>
