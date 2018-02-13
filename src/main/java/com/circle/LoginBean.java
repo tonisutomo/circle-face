@@ -8,7 +8,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import com.circle.client.Circle;
-import com.circle.client.ClientService;
+//import com.circle.client.ClientService;
 import com.circle.model.Square;
 
 @ManagedBean 
@@ -20,14 +20,6 @@ public class LoginBean implements Serializable {
 	private String password;
 	private Circle circle;
 	private Square square;
-	
-	public Square getSquare() {
-		return square;
-	}
-
-	public void setSquare(Square square) {
-		this.square = square;
-	}
 	
 	public void loginListener(ActionEvent actionEvent) {
 //		addMessage("Welcone to Circle Square");
@@ -51,6 +43,7 @@ public class LoginBean implements Serializable {
 	public String getName() {
 		return name;
 	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -67,5 +60,13 @@ public class LoginBean implements Serializable {
 
 	public void setCircle(Circle circle) {
 		this.circle = circle;
+	}
+	
+	public Square getSquare() {
+		return square;
+	}
+
+	public void setSquare(Square square) {
+		this.square = square;
 	}
 }
